@@ -38,6 +38,7 @@
         padding: 0 2rem;
       }
     </style>
+
     <script>
       const Showtime = () => {
         let date = new Date();
@@ -84,12 +85,15 @@
         if (h === 0) {
           h = 12;
         }
+        if (h >= 12) {
+          session = "PM";
+        }
         if (h > 12) {
           h = h - 12;
           session = "PM";
         }
 
-        let time = `${h}:${m}:${s}.${session}`;
+        let time = `${h}:${m}:${s}:${session}`;
         console.log(time);
 
         document.querySelector(".clock").innerText = time;
